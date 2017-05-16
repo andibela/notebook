@@ -1,11 +1,26 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 
 public class Reminder extends Note {
-    public String getTime() {
+    private LocalDateTime time;
+//    public String getTime() {
+//        return time;
+//    }
+
+    public LocalDateTime getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
+    }
+
+
+    public void setTime(String strTime) {
+//        this.time = time;
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:crmm");
+        this.time = LocalDateTime.parse(strTime, fmt);
     }
 
     @Override
@@ -16,5 +31,5 @@ public class Reminder extends Note {
                 '}';
     }
 
-    private String time;
+//    private String time;
 }
